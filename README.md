@@ -1,13 +1,18 @@
 # Landing Page Project
 
-## Table of Contents
+# Table of Contents
 
-* [Instructions](#instructions)
+- [Project Title](#project-title)
+- [Table of Contents](#table-of-contents)
+- [Describe project](#describe-project)
+- [Usage](#usage)
 
-## Instructions
+# Describe project
+I created a landing page. Each section corresponds to an item on the menu. When you tab into the menu, it will scroll to the land section.
+[(Back to top)](#table-of-contents)
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+# Usage
+The information on the page is divided into many parts, you can move to each part as follows:
+- Tap on each segment on the Navigation Menu
+- Scroll to the desired section. The status of the menu bar changes accordingly as you scroll
+[(Back to top)](#table-of-contents)
