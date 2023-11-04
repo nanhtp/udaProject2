@@ -24,7 +24,6 @@
 */
 const sectionArr = [];
 const sectionElm = document.getElementsByTagName('section');
-const headerElm = document.getElementsByTagName('header');
 const menuLinkElm = document.getElementsByClassName('menu__link');
 
 /**
@@ -54,12 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
         itemMenuLink.classList.add('menu__link');
         itemMenuLink.textContent = section;
 
-        // Add class active when load page for only Section 1
         if (section1 == itemMenuLink.innerText) {
             itemMenuLink.classList.add('active');
         }
 
-        // Append menu section to Navbar
         itemMenu.appendChild(itemMenuLink);
         navbarList.append(itemMenu);
     }
@@ -68,7 +65,20 @@ document.addEventListener("DOMContentLoaded", function() {
 // Add class 'active' to section when near top of viewport
 
 // Scroll to anchor ID using scrollTO event
-
+document.addEventListener("scroll", () => {
+    if (sectionArr.length > 0) {
+        for (let i = 0; i < sectionArr.length; i++) {
+            const top = document.querySelectorAll("h2")[i].getBoundingClientRect().top;
+            if (top >= 0 && top <= outerHeight) {
+                setActiveMenuSection(i);
+                break;
+            } else if (top > outerHeight) {
+                setActiveMenuSection(i - 1);
+                break;
+            }
+        }
+    }
+});
 
 /**
  * End Main Functions
@@ -87,6 +97,7 @@ const getSectionArr = () => {
 document.addEventListener('click', function(element) {
     for (let i = 0; i < sectionArr.length; i++) {
         if (element.target.innerText == sectionArr[i]) {
+            element.preventDefault();
             const section = document.querySelector('#section' + (i + 1));
 			setActiveMenuSection(i);
             section.scrollIntoView({behavior: "smooth", block: "start"});
